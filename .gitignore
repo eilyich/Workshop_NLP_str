@@ -3,3 +3,8 @@ corrected_data.csv
 corrected_data2.csv
 all_features.csv
 clusters.csv
+
+*.ipynb
+
+feature_names.csv
+text_only.csv
