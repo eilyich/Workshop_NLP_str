@@ -3,8 +3,8 @@ import pandas as pd
 import datetime
 import streamlit as st
 from streamlit_shap import st_shap
-# st.set_page_config(layout="wide")
-st.set_page_config(page_title="Предсказание популярности публикаций", page_icon=":book:", layout="wide", theme="light")
+st.set_page_config(layout="wide")
+# st.set_page_config(page_title="Предсказание популярности публикаций", page_icon=":book:", layout="wide", theme="light")
 
 import lightgbm
 import shap
