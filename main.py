@@ -12,7 +12,9 @@ import joblib
 import scipy
 import string
 import re
+import nltk
 from nltk.corpus import stopwords
+nltk.download('stopwords')
 import emoji
 import spacy
 import natasha
