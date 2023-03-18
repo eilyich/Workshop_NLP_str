@@ -42,6 +42,7 @@ custom_day_of_week_calendar = {
                         }
 post_source = 'vk' # CONST
 all_texts = pd.read_csv('text_only.csv', sep=';', index_col=0)['text']
+all_targets = pd.read_csv('target.csv', sep=';', index_col=0)
 
 st.markdown("""<font size="+8">Анализ популярности публикаций</font>   
 Проект преследует две взаимосвязанные цели:  
@@ -125,8 +126,17 @@ text = st.text_area('Введите текст', height=300)
 
 with st.expander("👇 Можно взять пример текста отсюда"):
     def display_random_text():
-        rnd_text = all_texts.sample().tolist()[0]
+        rndm = all_texts.sample()
+        rnd_text = rndm.tolist()[0]
+        rnd_convertion = str(np.round(all_targets.loc[rndm.index[0]][0], 1))
         st.markdown(rnd_text)
+        st.markdown("""   
+        ---
+        
+        
+        ```(В реальности этот текст лайкнули """ + rnd_convertion + """% пользователей)```""", unsafe_allow_html=True)
+        
+        st.markdown("""<font size="+1">Примечание: даже при идеальном совпадении анализа модели с реальностью, в итоговом предсказании будет отличие - например из-за времени суток и дня недели, в котороый вы осуществляете проверку.</font>""", unsafe_allow_html=True)
 
 
     if st.button('Выбрать другой'):
